@@ -1,0 +1,12 @@
+D:\dev\APIGerenciador\Manager.Core\bin\Debug\net6.0\Manager.Core.deps.json
+D:\dev\APIGerenciador\Manager.Core\bin\Debug\net6.0\Manager.Core.dll
+D:\dev\APIGerenciador\Manager.Core\bin\Debug\net6.0\Manager.Core.pdb
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\Manager.Core.csproj.AssemblyReference.cache
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\Manager.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\Manager.Core.AssemblyInfoInputs.cache
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\Manager.Core.AssemblyInfo.cs
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\Manager.Core.csproj.CoreCompileInputs.cache
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\Manager.Core.dll
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\refint\Manager.Core.dll
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\Manager.Core.pdb
+D:\dev\APIGerenciador\Manager.Core\obj\Debug\net6.0\ref\Manager.Core.dll

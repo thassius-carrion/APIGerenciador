@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "kFfkQXH2EN63ET3TJ0qCLf1aMBlbNaHwNw6rIgF4Kxr2OowIFE4mWGPEUPyPPJ7uj8FHcWyuqKfAsjI0jrY3kQ==",
+  "success": true,
+  "projectFilePath": "D:\\dev\\APIGerenciador\\src\\Manager.Domain\\Manager.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Thassius\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
