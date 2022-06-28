@@ -97,7 +97,7 @@ namespace Manager.Service.Services
 
         public async Task<List<UserDTO>> SearchByName(string name)
         {
-            var allUsers = await _userRepository.SearchByEmail(name);
+            var allUsers = await _userRepository.SearchByName(name);
 
             return _mapper.Map<List<UserDTO>>(allUsers);
 

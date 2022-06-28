@@ -104,6 +104,154 @@ namespace Manager.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("/api/v1/users/get/{id}")]
+        public async Task<IActionResult> Get(long id)
+        {
+            try
+            {
+                var user = await _userService.Get(id);
+
+                return Ok(new ResultViewModel
+                {
+                    Success = true,
+                    Message = "User finded successfully!",
+                    Data = user
+                });
+
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(Responses.DomainErrorMessage(ex.Message));  
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, Responses.ApplicationErrorMessage());
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/v1/users/get")]
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+                var allUsers = await _userService.Get();
+
+                return Ok(new ResultViewModel
+                {
+                    Success = true,
+                    Message = "Users finded successfully!",
+                    Data = allUsers
+                });
+
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(Responses.DomainErrorMessage(ex.Message));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, Responses.ApplicationErrorMessage());
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/v1/users/getbyemail")]
+        public async Task<IActionResult> GetByEmail([FromQuery] string email)
+        {
+            try
+            {
+                var user = await _userService.GetByEmail(email);
+
+                return Ok(new ResultViewModel
+                {
+                    Success = true,
+                    Message = "User finded successfully!",
+                    Data = user
+                });
+
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(Responses.DomainErrorMessage(ex.Message));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, Responses.ApplicationErrorMessage());
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/v1/users/searchbyemail")]
+        public async Task<IActionResult> SearchByEmail([FromQuery] string email)
+        {
+            try
+            {
+                var allUsers = await _userService.SearchByEmail(email);
+
+                if(allUsers.Count == 0)
+                    return Ok(new ResultViewModel
+                    {
+                        Success = true,
+                        Message = "No users finded!",
+                        Data = allUsers
+                    });
+
+
+                return Ok(new ResultViewModel
+                {
+                    Success = true,
+                    Message = "User finded successfully!",
+                    Data = allUsers
+                });
+
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(Responses.DomainErrorMessage(ex.Message));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, Responses.ApplicationErrorMessage());
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/v1/users/searchbyname")]
+        public async Task<IActionResult> SearchByName([FromQuery] string name)
+        {
+            try
+            {
+                var allUsers = await _userService.SearchByName(name);
+
+                if (allUsers.Count == 0)
+                    return Ok(new ResultViewModel
+                    {
+                        Success = true,
+                        Message = "No users finded!",
+                        Data = allUsers
+                    });
+
+
+                return Ok(new ResultViewModel
+                {
+                    Success = true,
+                    Message = "User finded successfully!",
+                    Data = allUsers
+                });
+
+            }
+            catch (DomainException ex)
+            {
+                return BadRequest(Responses.DomainErrorMessage(ex.Message));
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, Responses.ApplicationErrorMessage());
+            }
+        }
+
 
     }
 }
