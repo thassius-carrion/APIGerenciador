@@ -1,4 +1,5 @@
 using AutoMapper;
+using EscNet.DependencyInjection.IoC.Cryptography;
 using Manager.API.Token;
 using Manager.API.ViewModel;
 using Manager.Domain.Entities;
@@ -25,7 +26,7 @@ builder.Services.AddControllers();
 
 #region Jwt
 
-var secrectKey = builder.Configuration["Jwt:Key"];
+var secrectKey = configuration["Jwt:Key"];
 
 services.AddAuthentication(x =>
 {
@@ -56,23 +57,22 @@ var autoMapperConfig = new MapperConfiguration(cfg =>
     cfg.CreateMap<UpdateUserViewModel, UserDTO>().ReverseMap();
 });
 
-builder.Services.AddSingleton(autoMapperConfig.CreateMapper());
+services.AddSingleton(autoMapperConfig.CreateMapper());
 
 #endregion
 
 #region Injecao de Dependencia
 
-builder.Services.AddDbContext<ManagerContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:USER_MANAGER"]), ServiceLifetime.Transient);
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
+services.AddDbContext<ManagerContext>(options => options.UseSqlServer(configuration["ConnectionStrings:USER_MANAGER"]), ServiceLifetime.Transient);
+services.AddScoped<IUserRepository, UserRepository>();
+services.AddScoped<IUserService, UserService>();
+services.AddScoped<ITokenGenerator, TokenGenerator>();
 
 #endregion
 
-
 #region Swagger
 
-builder.Services.AddSwaggerGen(c =>
+services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
@@ -111,8 +111,14 @@ builder.Services.AddSwaggerGen(c =>
 
 #endregion
 
+#region Cryptography
+
+services.AddRijndaelCryptography(configuration["Cryptography"]);
+
+#endregion
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
+services.AddEndpointsApiExplorer();
 
 
 var app = builder.Build();

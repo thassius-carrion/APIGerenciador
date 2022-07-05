@@ -14,6 +14,18 @@
           "lib/netstandard2.1/AutoMapper.dll": {}
         }
       },
+      "EscNet/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "5.0.1"
+        },
+        "compile": {
+          "lib/net5.0/EscNet.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/EscNet.dll": {}
+        }
+      },
       "FluentValidation/11.1.0": {
         "type": "package",
         "compile": {
@@ -763,6 +775,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "EscNet": "1.0.1",
           "Manager.Core": "1.0.0",
           "Manager.Domain": "1.0.0",
           "Manager.Infra": "1.0.0",
@@ -791,6 +804,19 @@
         "icon.png",
         "lib/netstandard2.1/AutoMapper.dll",
         "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "EscNet/1.0.1": {
+      "sha512": "g25qdDAMDgtvkuXSy1LuP51w7ckKXSZJgOZTfcZNaTnUEDFBZe1UjbeDWjLsF67ktL8qV378uykTeo6iznbQPQ==",
+      "type": "package",
+      "path": "escnet/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "EscNet-Icon.jpg",
+        "escnet.1.0.1.nupkg.sha512",
+        "escnet.nuspec",
+        "lib/net5.0/EscNet.dll"
       ]
     },
     "FluentValidation/11.1.0": {
@@ -2167,6 +2193,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "EscNet >= 1.0.1",
       "Manager.Service >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.6",
       "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 6.0.6",
@@ -2216,6 +2243,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "EscNet": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[6.0.6, )"
